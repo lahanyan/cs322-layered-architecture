@@ -24,14 +24,14 @@ public class TransactionControllerImpl implements TransactionController {
     public String createCreditAccount(@RequestBody CreateTransactionRequest request) {
         boolean value = transactionService.createCreditAccount(request.userId());
 
-        return value ? "Credit" : "Creating Credit Account";
+        return value ? "Credit" : "Cannot create Credit Account";
     }
 
     @PostMapping("/debit")
     public String createDebitAccount(@RequestBody CreateTransactionRequest request) {
         boolean value = transactionService.createDebitAccount(request.userId());
 
-        return value ? "Debit" : "Creating Debit Account";
+        return value ? "Debit" : "Cannot create Debit Account";
     }
 
 }
