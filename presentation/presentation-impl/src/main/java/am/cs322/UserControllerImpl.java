@@ -3,9 +3,16 @@ package am.cs322;
 import am.cs322.model.CreateUserRequest;
 import am.cs322.model.UserDTO;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import java.util.List;
+
+
+
+
 
 @RestController
 @RequestMapping("/v1/users")
@@ -15,6 +22,12 @@ public class UserControllerImpl implements UserController {
 
     public UserControllerImpl(UserService userService) {
         this.userService = userService;
+    }
+
+
+    @GetMapping
+    public List<UserDTO>getAllUsers() {
+        return userService.getAllUsers();
     }
 
     @Override
